@@ -81,42 +81,42 @@ namespace TogglApi.Client.Reports.Models
 
             if (_clientIds != null)
             {
-                queryParams += $"&client_ids={string.Join(',', _clientIds)}";
+                queryParams += $"&client_ids={string.Join(",", _clientIds)}";
             }
 
             if (_projectIds != null)
             {
-                queryParams += $"&project_ids={string.Join(',', _projectIds)}";
+                queryParams += $"&project_ids={string.Join(",", _projectIds)}";
             }
 
             if (_userIds != null)
             {
-                queryParams += $"&user_ids={string.Join(',', _userIds)}";
+                queryParams += $"&user_ids={string.Join(",", _userIds)}";
             }
 
             if (_memberOfGroupIds != null)
             {
-                queryParams += $"&member_of_group_ids={string.Join(',', _memberOfGroupIds)}";
+                queryParams += $"&member_of_group_ids={string.Join(",", _memberOfGroupIds)}";
             }
 
             if (_orMemberOfGroupIds != null)
             {
-                queryParams += $"&or_member_of_group_ids={string.Join(',', _orMemberOfGroupIds)}";
+                queryParams += $"&or_member_of_group_ids={string.Join(",", _orMemberOfGroupIds)}";
             }
 
             if (_tagIds != null)
             {
-                queryParams += $"&tag_ids={string.Join(',', _tagIds)}";
+                queryParams += $"&tag_ids={string.Join(",", _tagIds)}";
             }
 
             if (_taskIds != null)
             {
-                queryParams += $"&task_ids={string.Join(',', _taskIds)}";
+                queryParams += $"&task_ids={string.Join(",", _taskIds)}";
             }
 
             if (_timeEntryIds != null)
             {
-                queryParams += $"&time_entry_ids={string.Join(',', _timeEntryIds)}";
+                queryParams += $"&time_entry_ids={string.Join(",", _timeEntryIds)}";
             }
 
             if (_description != null)

@@ -5,6 +5,17 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TogglApi.Client", "TogglApi.Client\TogglApi.Client.csproj", "{19D5B650-6E12-426C-8C3F-371D69376A7A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{62150B0D-070C-47B9-8E47-4E92867FFD24}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		appveyor.yml = appveyor.yml
+		LICENSE = LICENSE
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TogglApi.Client.ManualTest", "TogglApi.Client.ManualTest\TogglApi.Client.ManualTest.csproj", "{1EA8074C-0E75-4B21-80E4-0FEF2F6A946A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +26,10 @@ Global
 		{19D5B650-6E12-426C-8C3F-371D69376A7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19D5B650-6E12-426C-8C3F-371D69376A7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19D5B650-6E12-426C-8C3F-371D69376A7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EA8074C-0E75-4B21-80E4-0FEF2F6A946A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EA8074C-0E75-4B21-80E4-0FEF2F6A946A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EA8074C-0E75-4B21-80E4-0FEF2F6A946A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EA8074C-0E75-4B21-80E4-0FEF2F6A946A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

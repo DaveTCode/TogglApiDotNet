@@ -1,7 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <Authors>David Tyler</Authors>
+    <Description>.NET library for the Toggl API</Description>
+    <Copyright>2019 © David Tyler</Copyright>
+    <VersionPrefix>0.5.0</VersionPrefix>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyTitle>TogglApi.Client</AssemblyTitle>
+    <AssemblyName>TogglApi.Client</AssemblyName>
+    <PackageId>TogglApi.Client</PackageId>
+    <PackageTags>Toggl</PackageTags>
+    <PackageIconUrl>TODO</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/DaveTCode/TogglApiDotNet</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/DaveTCode/TogglApiDotNet</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/DaveTCode/TogglApiDotNet</RepositoryUrl>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 

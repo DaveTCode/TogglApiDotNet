@@ -48,7 +48,7 @@ namespace TogglApi.Client.Reports
                 // ReSharper disable once SwitchStatementMissingSomeCases
                 switch (response.StatusCode)
                 {
-                    case HttpStatusCode.TooManyRequests:
+                    case (HttpStatusCode) 429: // Dotnet standard doesn't have TooManyRequests on the API - c.f. https://github.com/dotnet/corefx/issues/17149
                         _logger.Info("Rate limited request, pausing before retrying");
                         await Task.Delay(1000 * (retries + 1));
                         break;
