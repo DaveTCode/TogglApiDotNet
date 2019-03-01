@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\TogglApi\TogglApi.Client\TogglApi.Client.csproj" />
+    <ProjectReference Include="..\TogglApi.Client\TogglApi.Client.csproj" />
   </ItemGroup>
 
 </Project>
