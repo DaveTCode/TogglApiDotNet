@@ -38,8 +38,7 @@ namespace TogglApi.Client.ManualTest
                 workspaceId: workspaceId
             ), apiToken: apiToken);
 
-            Console.WriteLine(weeklyReport.WeekTotals);
-            Console.Read();
+            Console.WriteLine(weeklyReport.Data[0].Title.User);
         }
     }
 }

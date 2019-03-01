@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 		appveyor.yml = appveyor.yml
 		LICENSE = LICENSE
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TogglApi.Client.ManualTest", "TogglApi.Client.ManualTest\TogglApi.Client.ManualTest.csproj", "{1EA8074C-0E75-4B21-80E4-0FEF2F6A946A}"
