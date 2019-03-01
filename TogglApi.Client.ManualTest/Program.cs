@@ -39,6 +39,17 @@ namespace TogglApi.Client.ManualTest
             ), apiToken: apiToken);
 
             Console.WriteLine(weeklyReport.Data[0].Title.User);
+
+            var detailedReport = await client.GetDetailedReport(new DetailedReportConfig
+            (
+                userAgent: "test-app",
+                workspaceId: workspaceId,
+                since: DateTime.UtcNow.AddDays(-14),
+                until: DateTime.UtcNow
+            ), apiToken: apiToken);
+
+            Console.WriteLine(detailedReport.TotalGrand);
+            Console.WriteLine(detailedReport.Data[0].Task);
         }
     }
 }

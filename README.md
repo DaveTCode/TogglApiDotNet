@@ -6,7 +6,7 @@ This library provides a thin layer over the [Toggl](https://toggl.com) Json API 
 
 Contributions are welcome, please submit issues or PRs.
 
-## Usage
+## Report API Usage
 
 Get weekly report grouped by users for the most recent week:
 ```
@@ -19,6 +19,17 @@ var weeklyReport = await client.GetWeeklyReport(new WeeklyReportConfig<WeeklyRep
             ), apiToken: apiToken);
 
 Console.WriteLine(weeklyReport.Data[0].Title.User);
+```
+
+Get detailed report for fixed time period:
+```
+var detailedReport = await client.GetDetailedReport(new DetailedReportConfig
+            (
+                userAgent: "test-app",
+                workspaceId: workspaceId,
+                since: DateTime.UtcNow.AddDays(-14),
+                until: DateTime.UtcNow
+            ), apiToken: apiToken);
 ```
 
 ## Development

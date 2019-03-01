@@ -9,8 +9,6 @@ namespace TogglApi.Client.Reports.Models
     /// </summary>
     public class DetailedReportConfig : ReportConfig
     {
-        internal long Page { get; set; }
-
         public DetailedReportConfig(string userAgent, int workspaceId, DateTime? since = null,
             DateTime? until = null, BillableOptions? billableOptions = null, IList<int> clientIds = null,
             IList<int> projectIds = null, IList<int> userIds = null, IList<int> memberOfGroupIds = null,
@@ -21,15 +19,13 @@ namespace TogglApi.Client.Reports.Models
             projectIds, userIds, memberOfGroupIds, orMemberOfGroupIds, tagIds, taskIds, timeEntryIds, description,
             withoutDescription, orderField?.UrlRepresentation(), orderDescending, distinctRates, rounding, displayHours)
         {
+            UrlParameters.Add("page", 1);
         }
 
-        internal override string GenerateUrl()
+        internal void IncrementPage()
         {
-            var url = base.GenerateUrl();
-            
-            url += $"&page={Page}";
-
-            return url;
+            var page = UrlParameters["page"] as int? ?? 0;
+            UrlParameters["page"] = page + 1;
         }
     }
 }

@@ -1,65 +1,15 @@
-﻿using System;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using NLog;
 using TogglApi.Client.Reports.Models;
 using TogglApi.Client.Reports.Models.Response;
 
 namespace TogglApi.Client.Reports
 {
-    public class TogglReportClient
+    public class TogglReportClient : BaseTogglClient
     {
-        private readonly HttpClient _httpClient;
-        private readonly ILogger _logger;
-        private readonly JsonSerializerSettings _jsonSerializerSettings = new JsonSerializerSettings
+        public TogglReportClient(HttpClient httpClient, ILogger logger) : base(httpClient, logger)
         {
-            ContractResolver = new DefaultContractResolver
-            {
-                NamingStrategy = new SnakeCaseNamingStrategy()
-            }
-        };
-
-        public TogglReportClient(HttpClient httpClient, ILogger logger)
-        {
-            _httpClient = httpClient;
-            _logger = logger;
-            _httpClient.DefaultRequestHeaders.Accept.Clear();
-            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-        }
-
-        private async Task<HttpResponseMessage> GetGenericReportApi(string url, string apiToken)
-        {
-            var request = new HttpRequestMessage(HttpMethod.Get, url);
-            request.Headers.Authorization = new AuthenticationHeaderValue("Basic",
-                Convert.ToBase64String(Encoding.UTF8.GetBytes($"{apiToken}:api_token")));
-
-            var retries = 0;
-            const int maxRetries = 3;
-            HttpResponseMessage response = null;
-            while (retries < maxRetries)
-            {
-                response = await _httpClient.SendAsync(request);
-
-                // ReSharper disable once SwitchStatementMissingSomeCases
-                switch (response.StatusCode)
-                {
-                    case (HttpStatusCode) 429: // Dotnet standard doesn't have TooManyRequests on the API - c.f. https://github.com/dotnet/corefx/issues/17149
-                        _logger.Info("Rate limited request, pausing before retrying");
-                        await Task.Delay(1000 * (retries + 1));
-                        break;
-                    default:
-                        return response;
-                }
-
-                retries++;
-            }
-
-            return response;
         }
 
         /// <summary>
@@ -82,24 +32,19 @@ namespace TogglApi.Client.Reports
         /// </returns>
         public async Task<DetailedReportResponse> GetDetailedReport(DetailedReportConfig config, string apiToken)
         {
-            var response = await GetGenericReportApi(config.GenerateUrl(), apiToken);
+            var totalData = await GetGenericReportApi<DetailedReportResponse>(config.GenerateUrl(), apiToken);
 
-            var totalData = JsonConvert.DeserializeObject<DetailedReportResponse>(
-                await response.Content.ReadAsStringAsync(),
-                _jsonSerializerSettings);
-
-            if (totalData.TotalCount <= totalData.PerPage) return totalData;
+            if (totalData.TotalCount <= totalData.PerPage)
+            {
+                return totalData;
+            }
 
             // Data in the detailed report can be paged if it has more than
             // 50 rows.
             for (var page = 2; page <= 1 + (totalData.TotalCount / totalData.PerPage); page++)
             {
-                config.Page = page;
-                response = await GetGenericReportApi(config.GenerateUrl(), apiToken);
-
-                var partialData = JsonConvert.DeserializeObject<DetailedReportResponse>(
-                    await response.Content.ReadAsStringAsync(),
-                    _jsonSerializerSettings);
+                config.IncrementPage();
+                var partialData = await GetGenericReportApi<DetailedReportResponse>(config.GenerateUrl(), apiToken);
 
                 totalData.Data.AddRange(partialData.Data);
             }
@@ -127,13 +72,7 @@ namespace TogglApi.Client.Reports
         public async Task<WeeklyReportResponse<T>> GetWeeklyReport<T>(WeeklyReportConfig<T> config, string apiToken)
             where T : WeeklyReportResponseGroup
         {
-            var response = await GetGenericReportApi(config.GenerateUrl(), apiToken);
-
-            // TODO - Handle non-200 result codes
-
-            return JsonConvert.DeserializeObject<WeeklyReportResponse<T>>(
-                await response.Content.ReadAsStringAsync(),
-                _jsonSerializerSettings);
+            return await GetGenericReportApi<WeeklyReportResponse<T>>(config.GenerateUrl(), apiToken);
         }
 
         /// <summary>
@@ -159,13 +98,8 @@ namespace TogglApi.Client.Reports
         {
             // TODO - How to validate that the group/subgroup is allowed?
 
-            var response = await GetGenericReportApi(config.GenerateUrl(), apiToken);
-
-            // TODO - Handle non-200 result codes
-
-            return JsonConvert.DeserializeObject<SummaryReportResponse<TGrouping, TSubGrouping>>(
-                await response.Content.ReadAsStringAsync(),
-                _jsonSerializerSettings);
+            return await GetGenericReportApi<SummaryReportResponse<TGrouping, TSubGrouping>>(config.GenerateUrl(),
+                apiToken);
         }
     }
 }
