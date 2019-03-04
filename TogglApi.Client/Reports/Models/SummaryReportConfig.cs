@@ -21,28 +21,21 @@ namespace TogglApi.Client.Reports.Models
             taskIds, timeEntryIds, description, withoutDescription, orderField?.UrlRepresentation(), orderDescending,
             distinctRates, rounding, displayHours)
         {
-        }
-
-        internal override string GenerateUrl()
-        {
-            var url = base.GenerateUrl();
-
             if (typeof(TGrouping).GetCustomAttribute(typeof(ToggleApiUrlValueAttribute)) is
                 ToggleApiUrlValueAttribute groupingAttribute)
             {
-                url += $"&grouping={groupingAttribute.UrlValue}";
+                UrlParameters.Add("grouping", groupingAttribute.UrlValue);
             }
 
             if (typeof(TSubgrouping).GetCustomAttribute(typeof(ToggleApiUrlValueAttribute)) is
                 ToggleApiUrlValueAttribute subGroupingAttribute)
             {
-                url += $"&subgrouping={subGroupingAttribute.UrlValue}";
+                UrlParameters.Add("subgrouping", subGroupingAttribute.UrlValue);
             }
 
             // Note that we default these to true to simplify the resulting model
-            url += "&subgrouping_ids=true";
-            url += "&grouped_time_entry_ids=true";
-            return url;
+            UrlParameters.Add("subgrouping_ids", "true");
+            UrlParameters.Add("grouped_time_entry_ids", "true");
         }
     }
 }

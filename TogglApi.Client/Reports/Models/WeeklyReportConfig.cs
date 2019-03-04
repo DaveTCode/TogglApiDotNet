@@ -12,8 +12,6 @@ namespace TogglApi.Client.Reports.Models
     public class WeeklyReportConfig<T> : ReportConfig
         where T: WeeklyReportResponseGroup
     {
-        private readonly CalculateOptions _calculateOptions;
-
         public WeeklyReportConfig(string userAgent, int workspaceId, DateTime? since = null,
             BillableOptions? billableOptions = null, IList<int> clientIds = null, IList<int> projectIds = null,
             IList<int> userIds = null, IList<int> memberOfGroupIds = null, IList<int> orMemberOfGroupIds = null,
@@ -26,21 +24,13 @@ namespace TogglApi.Client.Reports.Models
                 withoutDescription, orderField?.UrlRepresentation(), orderDescending, distinctRates, rounding,
                 displayHours)
         {
-            _calculateOptions = calculateOptions;
-        }
-
-        internal override string GenerateUrl()
-        {
-            var url = base.GenerateUrl();
-
             if (typeof(T).GetCustomAttribute(typeof(ToggleApiUrlValueAttribute)) is ToggleApiUrlValueAttribute
                 groupingAttribute)
             {
-                url += $"&grouping={groupingAttribute.UrlValue}";
+                UrlParameters.Add("grouping", groupingAttribute.UrlValue);
             }
 
-            url += $"&calculate={_calculateOptions.UrlRepresentation()}";
-            return url;
+            UrlParameters.Add("calculate", calculateOptions.UrlRepresentation());
         }
     }
 }
