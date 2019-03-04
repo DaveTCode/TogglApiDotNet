@@ -4,6 +4,11 @@ namespace TogglApi.Client.Exceptions
 {
     public class TogglApiException : Exception
     {
+        public TogglApiException() : base()
+        {
+            
+        }
+
         public TogglApiException(string message) : base(message)
         {
 
