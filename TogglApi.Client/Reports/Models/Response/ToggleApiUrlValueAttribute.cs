@@ -6,6 +6,7 @@ namespace TogglApi.Client.Reports.Models.Response
     /// <summary>
     /// Used to mark objects that need to be mapped to specific url values.
     /// </summary>
+    [AttributeUsage(AttributeTargets.Class)]
     internal class ToggleApiUrlValueAttribute : Attribute
     {
         internal string UrlValue { get; }
