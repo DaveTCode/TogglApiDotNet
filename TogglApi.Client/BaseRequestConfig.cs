@@ -7,7 +7,7 @@ namespace TogglApi.Client
 {
     public class BaseRequestConfig
     {
-        protected Dictionary<string, object> UrlParameters = new Dictionary<string, object>();
+        protected Dictionary<string, object> UrlParameters { get; } = new Dictionary<string, object>();
 
         private readonly string _baseUrl;
 
