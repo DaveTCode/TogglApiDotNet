@@ -32,12 +32,12 @@ namespace TogglApi.Client.General.Models.Response
 
         public string HexColor { get; }
 
-        public Project(long projectId, long workspaceId, long cId, string name, bool billable, bool isPrivate,
+        public Project(long id, long wid, long cId, string name, bool billable, bool isPrivate,
             bool active, DateTime createdAt, DateTime at, string color, bool autoEstimates, long actualHours,
             string hexColor)
         {
-            ProjectId = projectId;
-            WorkspaceId = workspaceId;
+            ProjectId = id;
+            WorkspaceId = wid;
             CId = cId;
             Name = name;
             Billable = billable;
