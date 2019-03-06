@@ -32,7 +32,7 @@ namespace TogglApi.Client.General.Models.Response
 
         public bool SidebarPiechart { get; }
 
-        public DateTimeOffset At { get; }
+        public DateTime At { get; }
 
         public long Retention { get; }
 
@@ -50,7 +50,11 @@ namespace TogglApi.Client.General.Models.Response
 
         public dynamic Invitation { get; }
 
-        public User(long id, long defaultWid, string email, string fullname, string jqueryDateFormat, string jqueryTimeofdayFormat, string timeofdayFormat, string dateFormat, bool storeStartAndStopTime, long beginningOfWeek, string language, Uri imageUrl, bool sidebarPiechart, DateTimeOffset at, long retention, bool recordTimeline, bool renderTimeline, bool timelineEnabled, bool timelineExperiment, dynamic newBlogPost, bool shouldUpgrade, dynamic invitation)
+        public User(long id, long defaultWid, string email, string fullname, string jqueryDateFormat,
+            string jqueryTimeofdayFormat, string timeofdayFormat, string dateFormat, bool storeStartAndStopTime,
+            long beginningOfWeek, string language, Uri imageUrl, bool sidebarPiechart, DateTime at, long retention,
+            bool recordTimeline, bool renderTimeline, bool timelineEnabled, bool timelineExperiment,
+            dynamic newBlogPost, bool shouldUpgrade, dynamic invitation)
         {
             UserId = id;
             DefaultWorkspaceId = defaultWid;

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using NLog;
 using TogglApi.Client.General.Models.Request;
 using Xunit;
@@ -47,6 +48,21 @@ namespace TogglApi.Client.Tests.General
             Assert.Equal(1, users[0].UserId);
             Assert.Equal("a@a.com", users[0].Email);
             Assert.Equal("A A", users[0].Fullname);
+ 
+            MockedClientHelper.ValidateUrlRequest("https://www.toggl.com/api/v8/workspaces/1/users", handlerMock);
+        }
+
+        [Fact]
+        public async Task TestGetClientsValidResponse()
+        {
+            var (client, handlerMock) = await MockedClientHelper.CreateMockedClient(Log, "valid_clients.json");
+            var clients = await client.GetClients("", 1);
+ 
+            Assert.Equal(3, clients.Count);
+            Assert.Equal(1, clients[0].ClientId);
+            Assert.Equal(1, clients[0].WorkspaceId);
+            Assert.Equal("A", clients[0].Name);
+            Assert.Equal(new DateTime(2019,2,27,16,31,22), clients[0].At);
  
             MockedClientHelper.ValidateUrlRequest("https://www.toggl.com/api/v8/workspaces/1/users", handlerMock);
         }
