@@ -36,5 +36,19 @@ namespace TogglApi.Client.Tests.General
  
             MockedClientHelper.ValidateUrlRequest("https://www.toggl.com/api/v8/workspaces/1/projects", handlerMock);
         }
+
+        [Fact]
+        public async Task TestGetUsersValidResponse()
+        {
+            var (client, handlerMock) = await MockedClientHelper.CreateMockedClient(Log, "valid_users.json");
+            var users = await client.GetUsers("", 1);
+ 
+            Assert.Equal(2, users.Count);
+            Assert.Equal(1, users[0].UserId);
+            Assert.Equal("a@a.com", users[0].Email);
+            Assert.Equal("A A", users[0].Fullname);
+ 
+            MockedClientHelper.ValidateUrlRequest("https://www.toggl.com/api/v8/workspaces/1/users", handlerMock);
+        }
     }
 }

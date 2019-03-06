@@ -22,5 +22,11 @@ namespace TogglApi.Client.General
         {
             return await GetGenericReportApi<List<Group>>(url: config.GenerateUrl(), apiToken: apiToken);
         }
+
+        public async Task<List<User>> GetUsers(string apiToken, long workspaceId)
+        {
+            return await GetGenericReportApi<List<User>>(
+                url: $"https://www.toggl.com/api/v8/workspaces/{workspaceId}/users", apiToken: apiToken);
+        }
     }
 }
