@@ -1,4 +1,5 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/knoetmulr2wt5xw4/branch/master?svg=true)](https://ci.appveyor.com/project/DaveTCode/togglapidotnet/branch/master)
+[![codecov](https://codecov.io/gh/DaveTCode/TogglApiDotNet/branch/master/graph/badge.svg)](https://codecov.io/gh/DaveTCode/TogglApiDotNet)
 
 # TogglAPI
 
