@@ -12,7 +12,7 @@ namespace TogglApi.Client.Tests.General
         [Fact]
         public async Task TestGetGroupsValidResponse()
         {
-            var (client, handlerMock) = await MockedClientHelper.CreateMockedClient(Log, "responses\\valid_groups.json");
+            var (client, handlerMock) = await MockedClientHelper.CreateMockedClient(Log, "valid_groups.json");
             var groups = await client.GetGroups("", new WorkspaceGroupRequestConfig(1));
  
             Assert.Equal(2, groups.Count);
@@ -26,7 +26,7 @@ namespace TogglApi.Client.Tests.General
         [Fact]
         public async Task TestGetProjectsValidResponse()
         {
-            var (client, handlerMock) = await MockedClientHelper.CreateMockedClient(Log, "responses\\valid_projects.json");
+            var (client, handlerMock) = await MockedClientHelper.CreateMockedClient(Log, "valid_projects.json");
             var projects = await client.GetProjects("", new WorkspaceProjectRequestConfig(1));
  
             Assert.Equal(2, projects.Count);

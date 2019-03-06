@@ -14,7 +14,7 @@ namespace TogglApi.Client.Tests
     {
         internal static async Task<(TogglWorkspaceClient, Mock<HttpMessageHandler>)> CreateMockedClient(ILogger log, string responseFile)
         {
-            var fileContents = await File.ReadAllTextAsync(responseFile);
+            var fileContents = await File.ReadAllTextAsync(Path.Combine("response", responseFile));
 
             var handlerMock = new Mock<HttpMessageHandler>(MockBehavior.Strict);
             handlerMock
