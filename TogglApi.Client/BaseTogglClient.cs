@@ -14,7 +14,9 @@ namespace TogglApi.Client
     public abstract class BaseTogglClient
     {
         private readonly HttpClient _httpClient;
+
         private readonly ILogger _logger;
+
         private readonly JsonSerializerSettings _jsonSerializerSettings = new JsonSerializerSettings
         {
             ContractResolver = new DefaultContractResolver
@@ -42,13 +44,13 @@ namespace TogglApi.Client
             const int maxRetries = 3;
             while (retries < maxRetries)
             {
-                var response = await _httpClient.SendAsync(request);
+                var response = await _httpClient.SendAsync(request).ConfigureAwait(false);
 
                 // Dotnet standard doesn't have TooManyRequests on the API - c.f. https://github.com/dotnet/corefx/issues/17149
                 if (response.StatusCode == (HttpStatusCode)429)
                 {
                     _logger.Info("Rate limited request, pausing before retrying");
-                    await Task.Delay(1000 * (retries + 1));
+                    await Task.Delay(1000 * (retries + 1)).ConfigureAwait(false);
                     retries++;
                     continue;
                 }
@@ -58,7 +60,7 @@ namespace TogglApi.Client
                     _logger.Debug("Request to url {} was a success with status code {}", url, response.StatusCode);
 
                     return JsonConvert.DeserializeObject<T>(
-                        await response.Content.ReadAsStringAsync(),
+                        await response.Content.ReadAsStringAsync().ConfigureAwait(false),
                         _jsonSerializerSettings);
                 }
 

@@ -9,7 +9,7 @@ namespace TogglApi.Client.Reports.Models
     /// </summary>
     public class DetailedReportConfig : ReportConfig
     {
-        public DetailedReportConfig(string userAgent, int workspaceId, DateTime? since = null,
+        public DetailedReportConfig(string userAgent, long workspaceId, DateTime? since = null,
             DateTime? until = null, BillableOptions? billableOptions = null, IList<int> clientIds = null,
             IList<int> projectIds = null, IList<int> userIds = null, IList<int> memberOfGroupIds = null,
             IList<int> orMemberOfGroupIds = null, IList<int> tagIds = null, IList<int> taskIds = null,

@@ -12,7 +12,7 @@ namespace TogglApi.Client.Reports.Models
     public class WeeklyReportConfig<T> : ReportConfig
         where T: WeeklyReportResponseGroup
     {
-        public WeeklyReportConfig(string userAgent, int workspaceId, DateTime? since = null,
+        public WeeklyReportConfig(string userAgent, long workspaceId, DateTime? since = null,
             BillableOptions? billableOptions = null, IList<int> clientIds = null, IList<int> projectIds = null,
             IList<int> userIds = null, IList<int> memberOfGroupIds = null, IList<int> orMemberOfGroupIds = null,
             IList<int> tagIds = null, IList<int> taskIds = null, IList<int> timeEntryIds = null,

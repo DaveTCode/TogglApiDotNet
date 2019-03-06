@@ -7,7 +7,7 @@ namespace TogglApi.Client.Reports.Models
 {
     public abstract class ReportConfig : BaseRequestConfig
     {
-        protected ReportConfig(ReportType reportType, string userAgent, int workspaceId, DateTime? since = null, DateTime? until = null, BillableOptions? billableOptions = null,
+        protected ReportConfig(ReportType reportType, string userAgent, long workspaceId, DateTime? since = null, DateTime? until = null, BillableOptions? billableOptions = null,
             IList<int> clientIds = null, IList<int> projectIds = null, IList<int> userIds = null,
             IList<int> memberOfGroupIds = null, IList<int> orMemberOfGroupIds = null, IList<int> tagIds = null,
             IList<int> taskIds = null, IList<int> timeEntryIds = null, string description = null,

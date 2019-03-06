@@ -10,7 +10,7 @@ namespace TogglApi.Client.Reports.Models
         where TGrouping : SummaryReportResponseGroup<TSubgrouping>
         where TSubgrouping : SummaryReportResponseSubGroup
     {
-        public SummaryReportConfig(string userAgent, int workspaceId, DateTime? since = null,
+        public SummaryReportConfig(string userAgent, long workspaceId, DateTime? since = null,
             DateTime? until = null, BillableOptions? billableOptions = null, IList<int> clientIds = null,
             IList<int> projectIds = null, IList<int> userIds = null, IList<int> memberOfGroupIds = null,
             IList<int> orMemberOfGroupIds = null, IList<int> tagIds = null, IList<int> taskIds = null,
