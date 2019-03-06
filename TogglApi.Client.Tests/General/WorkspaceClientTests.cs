@@ -66,5 +66,35 @@ namespace TogglApi.Client.Tests.General
  
             MockedClientHelper.ValidateUrlRequest("https://www.toggl.com/api/v8/workspaces/1/users", handlerMock);
         }
+
+        [Fact]
+        public async Task TestGetTagsValidResponse()
+        {
+            var (client, handlerMock) = await MockedClientHelper.CreateMockedClient(Log, "valid_tags.json");
+            var tags = await client.GetTags("", 1);
+ 
+            Assert.Equal(2, tags.Count);
+            Assert.Equal(1, tags[0].TagId);
+            Assert.Equal(1, tags[0].WorkspaceId);
+            Assert.Equal("A", tags[0].Name);
+            Assert.Equal(new DateTime(2018,6,28,12,42,37), tags[0].At);
+ 
+            MockedClientHelper.ValidateUrlRequest("https://www.toggl.com/api/v8/workspaces/1/tags", handlerMock);
+        }
+
+        [Fact]
+        public async Task TestGetTasksValidResponse()
+        {
+            var (client, handlerMock) = await MockedClientHelper.CreateMockedClient(Log, "valid_tasks.json");
+            var tasks = await client.GetTasks("", new WorkspaceTaskRequestConfig(1));
+ 
+            Assert.Equal(2, tasks.Count);
+            Assert.Equal(1, tasks[0].TaskId);
+            Assert.Equal(1, tasks[0].WorkspaceId);
+            Assert.Equal("A", tasks[0].Name);
+            Assert.Equal(new DateTime(2017,5,9,8,8,51), tasks[0].At);
+ 
+            MockedClientHelper.ValidateUrlRequest("https://www.toggl.com/api/v8/workspaces/1/tasks", handlerMock);
+        }
     }
 }

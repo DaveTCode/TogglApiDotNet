@@ -20,7 +20,8 @@ namespace TogglApi.Client
             ContractResolver = new DefaultContractResolver
             {
                 NamingStrategy = new SnakeCaseNamingStrategy()
-            }
+            },
+            DateTimeZoneHandling = DateTimeZoneHandling.Utc
         };
 
         protected BaseTogglClient(HttpClient httpClient, ILogger logger)

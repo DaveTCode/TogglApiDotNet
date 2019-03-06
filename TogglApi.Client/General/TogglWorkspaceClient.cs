@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using NLog;
 using TogglApi.Client.General.Models.Request;
 using TogglApi.Client.General.Models.Response;
+using Task = System.Threading.Tasks.Task;
 
 namespace TogglApi.Client.General
 {
@@ -33,6 +34,17 @@ namespace TogglApi.Client.General
         {
             return await GetGenericReportApi<List<Models.Response.Client>>(
                 url: $"https://www.toggl.com/api/v8/workspaces/{workspaceId}/users", apiToken: apiToken);
+        }
+
+        public async Task<List<Tag>> GetTags(string apiToken, long workspaceId)
+        {
+            return await GetGenericReportApi<List<Tag>>(
+                url: $"https://www.toggl.com/api/v8/workspaces/{workspaceId}/tags", apiToken: apiToken);
+        }
+
+        public async Task<List<Models.Response.Task>> GetTasks(string apiToken, WorkspaceTaskRequestConfig config)
+        {
+            return await GetGenericReportApi<List<Models.Response.Task>>(url: config.GenerateUrl(), apiToken: apiToken);
         }
     }
 }

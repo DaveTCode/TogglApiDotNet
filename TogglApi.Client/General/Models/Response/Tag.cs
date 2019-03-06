@@ -2,19 +2,19 @@
 
 namespace TogglApi.Client.General.Models.Response
 {
-    public class Client
+    public class Tag
     {
-        public long ClientId { get; }
-        
+        public long TagId { get; }
+
         public long WorkspaceId { get; }
         
         public string Name { get; }
         
         public DateTime At { get; }
 
-        public Client(long id, long wid, string name, DateTime at)
+        public Tag(long id, long wid, string name, DateTime at)
         {
-            ClientId = id;
+            TagId = id;
             WorkspaceId = wid;
             Name = name;
             At = at;
