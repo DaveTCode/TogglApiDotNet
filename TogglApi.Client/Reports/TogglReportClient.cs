@@ -32,7 +32,7 @@ namespace TogglApi.Client.Reports
         /// </returns>
         public async Task<DetailedReportResponse> GetDetailedReport(DetailedReportConfig config, string apiToken)
         {
-            var totalData = await GetGenericReportApi<DetailedReportResponse>(config.GenerateUrl(), apiToken);
+            var totalData = await GetGenericReportApi<DetailedReportResponse>(config.GenerateUrl(), apiToken).ConfigureAwait(false);
 
             if (totalData.TotalCount <= totalData.PerPage)
             {
@@ -44,7 +44,7 @@ namespace TogglApi.Client.Reports
             for (var page = 2; page <= 1 + (totalData.TotalCount / totalData.PerPage); page++)
             {
                 config.IncrementPage();
-                var partialData = await GetGenericReportApi<DetailedReportResponse>(config.GenerateUrl(), apiToken);
+                var partialData = await GetGenericReportApi<DetailedReportResponse>(config.GenerateUrl(), apiToken).ConfigureAwait(false);
 
                 totalData.Data.AddRange(partialData.Data);
             }
@@ -72,7 +72,7 @@ namespace TogglApi.Client.Reports
         public async Task<WeeklyReportResponse<T>> GetWeeklyReport<T>(WeeklyReportConfig<T> config, string apiToken)
             where T : WeeklyReportResponseGroup
         {
-            return await GetGenericReportApi<WeeklyReportResponse<T>>(config.GenerateUrl(), apiToken);
+            return await GetGenericReportApi<WeeklyReportResponse<T>>(config.GenerateUrl(), apiToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace TogglApi.Client.Reports
             // TODO - How to validate that the group/subgroup is allowed?
 
             return await GetGenericReportApi<SummaryReportResponse<TGrouping, TSubGrouping>>(config.GenerateUrl(),
-                apiToken);
+                apiToken).ConfigureAwait(false);
         }
     }
 }

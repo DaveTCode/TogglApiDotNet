@@ -11,6 +11,33 @@ namespace TogglApi.Client.Tests.General
         private static readonly ILogger Log = LogManager.GetCurrentClassLogger();
 
         [Fact]
+        public async Task TestGetWorkspacesValidResponse()
+        {
+            var (client, handlerMock) = await MockedClientHelper.CreateMockedClient(Log, "valid_workspaces.json");
+            var workspaces = await client.GetWorkspaces("");
+ 
+            Assert.Single(workspaces);
+            Assert.Equal(1, workspaces[0].WorkspaceId);
+            Assert.Equal("A", workspaces[0].Name);
+            Assert.Equal("USD", workspaces[0].DefaultCurrency);
+ 
+            MockedClientHelper.ValidateUrlRequest("https://www.toggl.com/api/v8/workspaces", handlerMock);
+        }
+
+        [Fact]
+        public async Task TestGetSingleWorkspaceValidResponse()
+        {
+            var (client, handlerMock) = await MockedClientHelper.CreateMockedClient(Log, "valid_workspace.json");
+            var workspace = await client.GetWorkspace("", 1);
+ 
+            Assert.Equal(1, workspace.WorkspaceId);
+            Assert.Equal("A", workspace.Name);
+            Assert.Equal("USD", workspace.DefaultCurrency);
+ 
+            MockedClientHelper.ValidateUrlRequest("https://www.toggl.com/api/v8/workspaces/1", handlerMock);
+        }
+
+        [Fact]
         public async Task TestGetGroupsValidResponse()
         {
             var (client, handlerMock) = await MockedClientHelper.CreateMockedClient(Log, "valid_groups.json");

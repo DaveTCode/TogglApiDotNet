@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "A",
+        "profile": 101,
+        "premium": true,
+        "admin": true,
+        "default_hourly_rate": 450,
+        "default_currency": "USD",
+        "only_admins_may_create_projects": false,
+        "only_admins_see_billable_rates": true,
+        "only_admins_see_team_dashboard": true,
+        "projects_billable_by_default": false,
+        "rounding": 0,
+        "rounding_minutes": 30,
+        "api_token": "12345",
+        "at": "2017-05-08T08:43:50+00:00",
+        "logo_url": "https://assets.toggl.com/logos/profile.png",
+        "ical_url": "/ical/workspace_user/1",
+        "ical_enabled": true,
+        "csv_upload": {
+            "at": "2017-05-05 16:58:21.256776+00",
+            "log_id": 123
+        }
+    }
+]
