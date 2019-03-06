@@ -12,7 +12,7 @@ before_test:
   - sh: dotnet tool install --global coverlet.console 
 
 test_script:
-  - sh: coverlet .\TogglApi.Client.Tests\bin\Release\netcoreapp2.2\TogglApi.Client.Tests.dll --target "dotnet" --targetargs "test -c Release --no-build"  --format opencover  --include "[TogglApi.Client]*"
+  - sh: dotnet test -c Release --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:Exclude="[xunit*]*" .\TogglApi.Client.Tests\TogglApi.Client.Tests.csproj
 
 after_test:
   - sh: dotnet pack ${APPVEYOR_BUILD_FOLDER}/TogglApi.Client -c Release --include-symbols --no-build -o artifacts/nuget
