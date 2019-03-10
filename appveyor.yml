@@ -18,7 +18,7 @@ after_test:
   - sh: dotnet pack ${APPVEYOR_BUILD_FOLDER}/TogglApi.Client -c Release --include-symbols --no-build -o artifacts/nuget
   - sh: wget -O codecov.sh 'https://codecov.io/bash'
   - sh: chmod +x codecov.sh
-  - sh: ./codecov.sh -f "coverage.opencover.xml"
+  - sh: ./codecov.sh -f "TogglApi.Client.Tests/coverage.opencover.xml"
 
 artifacts:
   - path: '**/artifacts/nuget/*.nupkg'
