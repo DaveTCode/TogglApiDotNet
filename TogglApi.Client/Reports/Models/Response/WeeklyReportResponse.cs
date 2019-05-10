@@ -9,7 +9,7 @@ namespace TogglApi.Client.Reports.Models.Response
 
         public List<T> Data { get; }
 
-        public WeeklyReportResponse(long totalGrand, long totalBillable, List<TotalCurrency> totalCurrencies,
+        public WeeklyReportResponse(long? totalGrand, long? totalBillable, List<TotalCurrency> totalCurrencies,
             List<long?> weekTotals, List<T> data) : base(totalGrand, totalBillable, totalCurrencies)
         {
             WeekTotals = weekTotals;

@@ -11,7 +11,7 @@ namespace TogglApi.Client.Reports.Models.Response
 
         internal long PerPage { get; }
 
-        public DetailedReportResponse(long totalGrand, long totalBillable, List<TotalCurrency> totalCurrencies,
+        public DetailedReportResponse(long? totalGrand, long? totalBillable, List<TotalCurrency> totalCurrencies,
             List<DetailedReportDatum> data, long totalCount, long perPage) : base(totalGrand, totalBillable, totalCurrencies)
         {
             Data = data;
@@ -38,14 +38,14 @@ namespace TogglApi.Client.Reports.Models.Response
         public string ProjectColor { get; }
         public string ProjectHexColor { get; }
         public string Task { get; }
-        public long BillableTimeMs { get; }
+        public long? BillableTimeMs { get; }
         public bool IsBillable { get; }
         public string Currency { get; }
         public List<string> Tags { get; }
 
         public DetailedReportDatum(long id, long? projectId, long? taskId, long? userId, string description,
             DateTime start, DateTime end, DateTime updated, long dur, string user, bool useStop, string client,
-            string project, string projectColor, string projectHexColor, string task, long billable,
+            string project, string projectColor, string projectHexColor, string task, long? billable,
             bool isBillable, string currency, List<string> tags)
         {
             Id = id;
