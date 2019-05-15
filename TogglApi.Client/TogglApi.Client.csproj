@@ -4,7 +4,7 @@
     <Authors>David Tyler</Authors>
     <Description>.NET library for the Toggl API</Description>
     <Copyright>2019 © David Tyler</Copyright>
-    <VersionPrefix>0.5.0</VersionPrefix>
+    <VersionPrefix>0.5.1</VersionPrefix>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyTitle>TogglApi.Client</AssemblyTitle>
     <AssemblyName>TogglApi.Client</AssemblyName>
@@ -12,18 +12,11 @@
     <PackageTags>Toggl</PackageTags>
     <PackageIconUrl>TODO</PackageIconUrl>
     <PackageProjectUrl>https://github.com/DaveTCode/TogglApiDotNet</PackageProjectUrl>
+	<PackageReleaseNotes>Many API routes are not yet implemented, principally covers the reporting side of the API</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/DaveTCode/TogglApiDotNet</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/DaveTCode/TogglApiDotNet</RepositoryUrl>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <LangVersion>latest</LangVersion>
-    <Version>0.5.1</Version>
-    <PackageLicenseUrl>https://github.com/DaveTCode/TogglApiDotNet/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageReleaseNotes>Many API routes are not yet implemented, principally covers the reporting side of the API</PackageReleaseNotes>
+	<LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
