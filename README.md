@@ -1,5 +1,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/knoetmulr2wt5xw4/branch/master?svg=true)](https://ci.appveyor.com/project/DaveTCode/togglapidotnet/branch/master)
 [![codecov](https://codecov.io/gh/DaveTCode/TogglApiDotNet/branch/master/graph/badge.svg)](https://codecov.io/gh/DaveTCode/TogglApiDotNet)
+[![NuGet](https://img.shields.io/nuget/v/TogglApi.Client.svg)](https://www.nuget.org/packages/TogglApi.Client/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # TogglAPI
@@ -42,7 +43,10 @@ The library is written for .NET Standard 2.0 and is developed with the [.NET Cor
 
 ### Testing
 
-There are no automated tests for this library at present. There is a manual test application which can be called from the command line using:
+There are a small suite of unit tests which mock out the Toggl API with canned responses as laid out in the TogglApi.Client.Tests project. These can be run 
+from the command line with `dotnet test`.
+
+There is also a manual test application which can be called from the command line using:
 `dotnet run --project .\TogglApi.Client.ManualTest\TogglApi.Client.ManualTest.csproj -- <workspaceId> <apiKey>`
 
 where you can get your Api key from https://toggl.com/app/profile.
