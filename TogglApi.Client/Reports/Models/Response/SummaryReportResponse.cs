@@ -9,7 +9,7 @@ namespace TogglApi.Client.Reports.Models.Response
     {
         public List<TGrouping> Data { get; }
 
-        public SummaryReportResponse(long totalGrand, long totalBillable, List<TotalCurrency> totalCurrencies,
+        public SummaryReportResponse(long? totalGrand, long? totalBillable, List<TotalCurrency> totalCurrencies,
             List<TGrouping> data) : base(totalGrand, totalBillable, totalCurrencies)
         {
             Data = data;
@@ -42,11 +42,11 @@ namespace TogglApi.Client.Reports.Models.Response
 
         public string Currency { get; }
 
-        public long Sum { get; }
+        public long? Sum { get; }
 
-        public long Rate { get; }
+        public long? Rate { get; }
 
-        public SummaryReportResponseSubGroup(long time, string currency, long sum, long rate)
+        public SummaryReportResponseSubGroup(long time, string currency, long? sum, long? rate)
         {
             Time = time;
             Currency = currency;
@@ -100,7 +100,7 @@ namespace TogglApi.Client.Reports.Models.Response
         public ReportResponseProjectTitle Title { get; }
 
         [JsonConstructor]
-        public SummaryReportResponseProjectSubGroup(long time, string cur, long sum, long rate, 
+        public SummaryReportResponseProjectSubGroup(long time, string cur, long? sum, long? rate, 
             ReportResponseProjectTitle title) : base(time, cur, sum, rate)
         {
             Title = title;
@@ -112,7 +112,7 @@ namespace TogglApi.Client.Reports.Models.Response
     {
         public ReportResponseClientTitle Title { get; }
 
-        public SummaryReportResponseClientSubGroup(long time, string cur, long sum, long rate, 
+        public SummaryReportResponseClientSubGroup(long time, string cur, long? sum, long? rate, 
             ReportResponseClientTitle title) : base(time, cur, sum, rate)
         {
             Title = title;
@@ -124,7 +124,7 @@ namespace TogglApi.Client.Reports.Models.Response
     {
         public ReportResponseUserTitle Title { get; }
 
-        public SummaryReportResponseUserSubGroup(long time, string cur, long sum, long rate, 
+        public SummaryReportResponseUserSubGroup(long time, string cur, long? sum, long? rate, 
             ReportResponseUserTitle title) : base(time, cur, sum, rate)
         {
             Title = title;
@@ -136,7 +136,7 @@ namespace TogglApi.Client.Reports.Models.Response
     {
         public ReportResponseTaskTitle Title { get; }
 
-        public SummaryReportResponseTaskSubGroup(long time, string cur, long sum, long rate, 
+        public SummaryReportResponseTaskSubGroup(long time, string cur, long? sum, long? rate, 
             ReportResponseTaskTitle title) : base(time, cur, sum, rate)
         {
             Title = title;
@@ -148,7 +148,7 @@ namespace TogglApi.Client.Reports.Models.Response
     {
         public ReportResponseTimeEntryTitle Title { get; }
 
-        public SummaryReportResponseTimeEntrySubGroup(long time, string cur, long sum, long rate, 
+        public SummaryReportResponseTimeEntrySubGroup(long time, string cur, long? sum, long? rate, 
             ReportResponseTimeEntryTitle title) : base(time, cur, sum, rate)
         {
             Title = title;
