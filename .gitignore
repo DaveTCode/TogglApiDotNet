@@ -260,3 +260,6 @@ paket-files/
 __pycache__/
 *.pyc
 /coverage.opencover.xml
+
+# This might contain the API key for a toggl account
+**/launchSettings.json
