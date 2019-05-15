@@ -4,9 +4,9 @@
     {
         public string Currency { get; }
 
-        public double Amount { get; }
+        public double? Amount { get; }
 
-        public TotalCurrency(string currency, double amount)
+        public TotalCurrency(string currency, double? amount)
         {
             Currency = currency;
             Amount = amount;
