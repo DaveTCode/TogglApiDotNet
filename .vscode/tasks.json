@@ -1,0 +1,28 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "test",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "test",
+                "${workspaceFolder}/TogglApi.Client.Tests/TogglApi.Client.Tests.csproj",
+                "/p:CollectCoverage=true",
+                "/p:CoverletOutputFormat=\"opencover,lcov\"",
+                "/p:CoverletOutput=../lcov"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
