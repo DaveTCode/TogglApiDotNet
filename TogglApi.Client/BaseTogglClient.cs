@@ -34,7 +34,7 @@ namespace TogglApi.Client
             _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        protected async Task<T> GetGenericReportApi<T>(string url, string apiToken)
+        protected async Task<T> GetGenericTogglApi<T>(string url, string apiToken)
         {
             var request = new HttpRequestMessage(HttpMethod.Get, url);
             request.Headers.Authorization = new AuthenticationHeaderValue("Basic",
