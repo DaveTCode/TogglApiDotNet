@@ -20,9 +20,9 @@
         /// </summary>
         public string WebBaseUrl { get; }
 
-        public Configuration(string apiBaseUrl = "https://www.toggl.com/api/v8",
-            string reportsApiBaseUrl = "https://toggl.com/reports/api/v2",
-            string webBaseUrl = "https://www.toggl.com/app")
+        public Configuration(string apiBaseUrl = "https://api.track.toggl.com/api/v8",
+            string reportsApiBaseUrl = "https://api.track.toggl.com/reports/api/v2",
+            string webBaseUrl = "https://api.track.toggl.com/app")
         {
             ApiBaseUrl = apiBaseUrl;
             ReportsApiBaseUrl = reportsApiBaseUrl;

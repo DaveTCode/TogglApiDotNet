@@ -21,7 +21,7 @@ namespace TogglApi.Client.Tests.General
             Assert.Equal("A", workspaces[0].Name);
             Assert.Equal("USD", workspaces[0].DefaultCurrency);
  
-            MockedClientHelper.ValidateUrlRequest("https://www.toggl.com/api/v8/workspaces", handlerMock);
+            MockedClientHelper.ValidateUrlRequest("https://api.track.toggl.com/api/v8/workspaces", handlerMock);
         }
 
         [Fact]
@@ -34,7 +34,7 @@ namespace TogglApi.Client.Tests.General
             Assert.Equal("A", workspace.Name);
             Assert.Equal("USD", workspace.DefaultCurrency);
  
-            MockedClientHelper.ValidateUrlRequest("https://www.toggl.com/api/v8/workspaces/1", handlerMock);
+            MockedClientHelper.ValidateUrlRequest("https://api.track.toggl.com/api/v8/workspaces/1", handlerMock);
         }
 
         [Fact]
@@ -48,7 +48,7 @@ namespace TogglApi.Client.Tests.General
             Assert.Equal(1, groups[0].WorkspaceId);
             Assert.Equal("A Team", groups[0].Name);
  
-            MockedClientHelper.ValidateUrlRequest("https://www.toggl.com/api/v8/workspaces/1/groups", handlerMock);
+            MockedClientHelper.ValidateUrlRequest("https://api.track.toggl.com/api/v8/workspaces/1/groups", handlerMock);
         }
 
         [Fact]
@@ -62,7 +62,7 @@ namespace TogglApi.Client.Tests.General
             Assert.Equal(1, projects[0].WorkspaceId);
             Assert.Equal("A", projects[0].Name);
  
-            MockedClientHelper.ValidateUrlRequest("https://www.toggl.com/api/v8/workspaces/1/projects", handlerMock);
+            MockedClientHelper.ValidateUrlRequest("https://api.track.toggl.com/api/v8/workspaces/1/projects", handlerMock);
         }
 
         [Fact]
@@ -76,7 +76,7 @@ namespace TogglApi.Client.Tests.General
             Assert.Equal("a@a.com", users[0].Email);
             Assert.Equal("A A", users[0].Fullname);
  
-            MockedClientHelper.ValidateUrlRequest("https://www.toggl.com/api/v8/workspaces/1/users", handlerMock);
+            MockedClientHelper.ValidateUrlRequest("https://api.track.toggl.com/api/v8/workspaces/1/users", handlerMock);
         }
 
         [Fact]
@@ -91,7 +91,7 @@ namespace TogglApi.Client.Tests.General
             Assert.Equal("A", clients[0].Name);
             Assert.Equal(new DateTime(2019,2,27,16,31,22), clients[0].At);
  
-            MockedClientHelper.ValidateUrlRequest("https://www.toggl.com/api/v8/workspaces/1/users", handlerMock);
+            MockedClientHelper.ValidateUrlRequest("https://api.track.toggl.com/api/v8/workspaces/1/users", handlerMock);
         }
 
         [Fact]
@@ -106,7 +106,7 @@ namespace TogglApi.Client.Tests.General
             Assert.Equal("A", tags[0].Name);
             Assert.Equal(new DateTime(2018,6,28,12,42,37), tags[0].At);
  
-            MockedClientHelper.ValidateUrlRequest("https://www.toggl.com/api/v8/workspaces/1/tags", handlerMock);
+            MockedClientHelper.ValidateUrlRequest("https://api.track.toggl.com/api/v8/workspaces/1/tags", handlerMock);
         }
 
         [Fact]
@@ -121,7 +121,7 @@ namespace TogglApi.Client.Tests.General
             Assert.Equal("A", tasks[0].Name);
             Assert.Equal(new DateTime(2017,5,9,8,8,51), tasks[0].At);
  
-            MockedClientHelper.ValidateUrlRequest("https://www.toggl.com/api/v8/workspaces/1/tasks", handlerMock);
+            MockedClientHelper.ValidateUrlRequest("https://api.track.toggl.com/api/v8/workspaces/1/tasks", handlerMock);
         }
     }
 }

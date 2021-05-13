@@ -13,7 +13,7 @@ namespace TogglApi.Client.Reports.Models
             IList<int> taskIds = null, IList<int> timeEntryIds = null, string description = null,
             bool withoutDescription = false, string orderField = null, bool orderDescending = false,
             bool distinctRates = false, bool rounding = false, DisplayHours? displayHours = null) :
-            base($"https://toggl.com/reports/api/v2/{reportType.UrlRepresentation()}")
+            base($"https://api.track.toggl.com/reports/api/v2/{reportType.UrlRepresentation()}")
         {
             UrlParameters.Add("user_agent", userAgent);
             UrlParameters.Add("workspace_id", workspaceId);

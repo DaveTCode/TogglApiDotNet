@@ -2,7 +2,7 @@
 {
     public class WorkspaceGroupRequestConfig : BaseRequestConfig
     {
-        public WorkspaceGroupRequestConfig(long workspaceId) : base($"https://www.toggl.com/api/v8/workspaces/{workspaceId}/groups")
+        public WorkspaceGroupRequestConfig(long workspaceId) : base($"https://api.track.toggl.com/api/v8/workspaces/{workspaceId}/groups")
         {
         }
     }
