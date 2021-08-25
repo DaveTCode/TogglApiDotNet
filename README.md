@@ -1,4 +1,5 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/knoetmulr2wt5xw4/branch/master?svg=true)](https://ci.appveyor.com/project/DaveTCode/togglapidotnet/branch/master)
+[![CI Build](https://github.com/DaveTCode/TogglApiDotNet/actions/workflows/build.yml/badge.svg)](https://github.com/DaveTCode/TogglApiDotNet/actions/workflows/build.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=DaveTCode_TogglApiDotNet&metric=alert_status)](https://sonarcloud.io/dashboard?id=DaveTCode_TogglApiDotNet)
 [![codecov](https://codecov.io/gh/DaveTCode/TogglApiDotNet/branch/master/graph/badge.svg)](https://codecov.io/gh/DaveTCode/TogglApiDotNet)
 [![NuGet](https://img.shields.io/nuget/v/TogglApi.Client.svg)](https://www.nuget.org/packages/TogglApi.Client/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
