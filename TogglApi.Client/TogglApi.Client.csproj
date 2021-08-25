@@ -12,11 +12,11 @@
     <PackageTags>Toggl</PackageTags>
     <PackageIconUrl>TODO</PackageIconUrl>
     <PackageProjectUrl>https://github.com/DaveTCode/TogglApiDotNet</PackageProjectUrl>
-	<PackageReleaseNotes>Many API routes are not yet implemented, principally covers the reporting side of the API</PackageReleaseNotes>
+    <PackageReleaseNotes>Many API routes are not yet implemented, principally covers the reporting side of the API</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/DaveTCode/TogglApiDotNet</RepositoryUrl>
-	<LangVersion>latest</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

@@ -6,7 +6,7 @@ namespace TogglApi.Client.General.Models.Request
 {
     public class WorkspaceTaskRequestConfig : BaseRequestConfig
     {
-        public WorkspaceTaskRequestConfig(long workspaceId, bool? active=null) : base(
+        public WorkspaceTaskRequestConfig(long workspaceId, bool? active = null) : base(
             $"https://api.track.toggl.com/api/v8/workspaces/{workspaceId}/tasks")
         {
             UrlParameters.Add("active", active?.ToString().ToLowerInvariant());

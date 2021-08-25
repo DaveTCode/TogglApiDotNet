@@ -30,9 +30,9 @@ namespace TogglApi.Client.Tests
                     Content = new StringContent(fileContents)
                 })
                 .Verifiable();
- 
+
             var httpClient = new HttpClient(handlerMock.Object);
- 
+
             return (new TogglWorkspaceClient(httpClient, log), handlerMock);
         }
 

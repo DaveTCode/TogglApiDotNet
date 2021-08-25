@@ -58,7 +58,7 @@ namespace TogglApi.Client.Reports.Models.Response
     {
         public List<WeeklyReportResponseUserItem> Details { get; }
 
-        public WeeklyReportResponseProjectGroup(List<long?> totals, long? pid, ReportResponseProjectTitle title, 
+        public WeeklyReportResponseProjectGroup(List<long?> totals, long? pid, ReportResponseProjectTitle title,
             List<WeeklyReportResponseUserItem> details) : base(totals, pid, title)
         {
             Details = details;
@@ -70,7 +70,7 @@ namespace TogglApi.Client.Reports.Models.Response
     {
         public List<WeeklyReportResponseProjectItem> Details { get; }
 
-        public WeeklyReportResponseUserGroup(List<long?> totals, long? uid, ReportResponseUserTitle title, 
+        public WeeklyReportResponseUserGroup(List<long?> totals, long? uid, ReportResponseUserTitle title,
             List<WeeklyReportResponseProjectItem> details) : base(totals, uid, title)
         {
             Details = details;

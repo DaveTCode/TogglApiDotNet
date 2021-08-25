@@ -10,7 +10,7 @@ namespace TogglApi.Client.Reports.Models
     /// Refers to https://github.com/toggl/toggl_api_docs/blob/master/reports/weekly.md
     /// </summary>
     public class WeeklyReportConfig<T> : ReportConfig
-        where T: WeeklyReportResponseGroup
+        where T : WeeklyReportResponseGroup
     {
         public WeeklyReportConfig(string userAgent, long workspaceId, DateTime? since = null,
             BillableOptions? billableOptions = null, IList<int> clientIds = null, IList<int> projectIds = null,

@@ -8,7 +8,7 @@ namespace TogglApi.Client.Reports.Models.Response
         public long? TotalGrand { get; }
 
         public long? TotalBillable { get; }
-        
+
         public List<TotalCurrency> TotalCurrencies { get; }
 
         [JsonConstructor]
